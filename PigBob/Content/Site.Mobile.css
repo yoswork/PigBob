@@ -1,0 +1,99 @@
+﻿.page
+{
+    width: auto;
+}
+
+h2 
+{
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+p, ul
+{
+    margin: 5px 0 10px 0;
+}
+
+#header
+{
+    background-color: #5c87b2;
+    padding: 10px;
+}
+
+#main
+{
+    padding: 10px;
+}
+
+#header h1 
+{
+    line-height: normal;
+    font-size: 1.6em !important;
+    padding-top: 0; 
+}
+
+div#title
+{
+    float: left;
+}
+.view-switcher {
+    padding: 0.5em; 
+    font-weight: normal;
+}
+
+/* login */
+#login {
+    display: block;
+    margin: 0;
+    text-align: right;
+    float: left;
+}
+
+    #login a {
+        background-color: #d3dce0;
+        margin-left: 10px;
+        margin-right: 3px;
+        padding: 2px 3px;
+        text-decoration: none;
+    }
+
+    #login a.username {
+        background: none;
+        margin-left: 0px;
+        text-decoration: underline;
+    }
+
+    #login ul {
+        margin: 0;
+    }
+
+    #login li {
+        display: inline;
+        list-style: none;
+    }
+
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input[type="text"].input-validation-error,
+input[type="password"].input-validation-error {
+    border: solid 1px #e80c4d;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="@Url.Content("~/Content/Site.Mobile.css")" />
+        <link href="@Url.Content("~/Content/themes/metro/jquery.mobile.metro.theme.css")" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.mobile-1.1.0.min.js")"></script>
+        <script type="text/javascript">
+            $(document).bind("mobileinit", function() {
+                // As of Beta 2, jQuery Mobile's Ajax navigation does not work in all cases (e.g.,
+                // when navigating from a mobile to a non-mobile page), hence disabling it.
+                $.mobile.ajaxEnabled = false;
+            });
+        </script>
+    </head>
+<body>
+    <div data-role="page" data-theme="a">
+        @Html.Partial("_ViewSwitcher")
+
+        <div data-role="header">
+            <header>
+                <div id="title">
+                    <h1>PigBob</h1>
+                </div>
+                <div id="login" data-role="content">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </header>
+        </div>
+
+        <nav>
+            <div data-role="content">
+                <ul data-inset="true" data-role="listview">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                </ul>
+            </div>
+        </nav>
+
+        <div data-role="content">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
