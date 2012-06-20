@@ -1,0 +1,51 @@
+﻿@model PigBob.Models.OrderItem
+
+@{
+    ViewBag.Title = "Delete Sandwich";
+}
+
+<h2>Delete Sandwich</h2>
+
+@if (Model.Eater.UserId == ViewBag.UserId)
+{
+    <h3>Are you sure you want to delete this sandwich?</h3>
+    <fieldset>
+        <legend>OrderItem</legend>
+
+        <div class="display-label">Bacon</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Bacon)
+        </div>
+
+        <div class="display-label">Sausage</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Sausage)
+        </div>
+
+        <div class="display-label">Egg</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Egg)
+        </div>
+
+        <div class="display-label">Other</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Other)
+        </div>
+
+        <div class="display-label">Order</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Order.OrderID)
+        </div>
+    </fieldset>
+    using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="Delete" /> |
+            @Html.ActionLink("Back to Order", "Index", new { id = ViewBag.OrderID })
+        </p>
+    }
+}
+else
+{
+    <h3 style="color: Red;">You are not authorized to delete this sandwich. Please stop hacking me.</h3>
+}

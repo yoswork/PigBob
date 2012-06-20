@@ -4,10 +4,10 @@
         <meta charset="utf-8" />
         <title>@ViewBag.Title</title>
         <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="@Url.Content("~/Content/jquery.mobile-1.1.0.min.css")" />
         <link rel="stylesheet" href="@Url.Content("~/Content/Site.Mobile.css")" />
-        <link href="@Url.Content("~/Content/themes/metro/jquery.mobile.metro.theme.css")" rel="stylesheet" type="text/css" />
+        @Styles.Render("~/Content/themes/redmond/css")
         <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.mobile-1.1.0.min.js")"></script>
         <script type="text/javascript">
             $(document).bind("mobileinit", function() {
                 // As of Beta 2, jQuery Mobile's Ajax navigation does not work in all cases (e.g.,
@@ -15,35 +15,30 @@
                 $.mobile.ajaxEnabled = false;
             });
         </script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.mobile-1.1.0.min.js")"></script>
     </head>
 <body>
     <div data-role="page" data-theme="a">
         @Html.Partial("_ViewSwitcher")
 
-        <div data-role="header">
-            <header>
-                <div id="title">
-                    <h1>PigBob</h1>
+        <header>
+            <div data-role="header" data-position="inline">
+                <h1>PigBob</h1>
+                @Html.Partial("_LoginPartial")
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Index", "Home", null, new { data_icon = "home" })</li>
+                        <li>@Html.ActionLink("Orders", "Index", "Orders", null, new { data_icon = "grid" })</li>
+                        <li>@Html.ActionLink("About", "About", "Home", null, new { data_icon = "info" })</li>
+                    </ul>
                 </div>
-                <div id="login" data-role="content">
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </header>
-        </div>
-
-        <nav>
-            <div data-role="content">
-                <ul data-inset="true" data-role="listview">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                </ul>
             </div>
-        </nav>
+        </header>
 
         <div data-role="content">
             @RenderBody()
         </div>
     </div>
+    @RenderSection("scripts", required: false)
 </body>
 </html>

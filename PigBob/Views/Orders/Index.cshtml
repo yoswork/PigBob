@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PigBob.Models.Order>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Orders for Pig</h2>
+
+@if (User.IsInRole("Administrator"))
+{
+<p>
+    @Html.ActionLink("Create A New Pig Order", "Create")
+</p>
+}
+<table>
+    <tr>
+        <th>
+            Order Date
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.ActionLink("View Order", "Index", "Sandwiches", new { id=item.OrderID }, null)
+            @if(item.OrderDate>=DateTime.Now.AddHours(-8))
+            {
+                @: | @Html.ActionLink("Add to Order", "Create", "Sandwiches", new { id=item.OrderID }, null)
+            }
+            
+            @if(User.IsInRole("Administrator")){
+                @: | @Html.ActionLink("Edit", "Edit", new { id=item.OrderID })
+                @: | @Html.ActionLink("Delete", "Delete", new { id=item.OrderID })
+            }
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,40 @@
+﻿@model PigBob.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log In";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("form :input[type='text']:enabled:first").focus();
+    });
+</script>
+
+@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { data_ajax = "false" })) {
+        <div data-role="fieldcontain">
+            <h2>Log in with google</h2>
+            <a href="@Url.Action("OpenIdLogOn", "Account", new RouteValueDictionary(new { returnUrl = ViewContext.HttpContext.Request["ReturnUrl"] }))">
+                <img src="@Url.Content("~/Images/google-logo.jpg")" height="50" width="50" style="padding-bottom: 5px" />
+            </a>
+
+            <h2>or username and password</h2>
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName, new { data_mini = "true", placeholder = "Username" })
+            @Html.ValidationMessageFor(m => m.UserName)
+
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { data_mini = "true", placeholder = "Password" })
+            @Html.ValidationMessageFor(m => m.Password)
+                
+            @Html.CheckBoxFor(m => m.RememberMe)
+            <label for="RememberMe" class="checkbox">Remember me?</label>
+
+            <input type="submit" value="Log in" data-icon="check" data-corners="false" />
+        </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

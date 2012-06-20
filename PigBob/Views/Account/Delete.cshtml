@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Delete Account";
+}
+
+<h2>Delete Account</h2>
+<p>Are you sure you want to delete account <strong>@User.Identity.Name</strong>?</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div>
+        <fieldset>
+            @Html.Hidden("username", User.Identity.Name)
+            <input type="submit" value="Yes" /> | 
+            @Html.ActionLink("No", "Index")
+        </fieldset>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

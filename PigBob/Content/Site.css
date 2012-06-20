@@ -167,8 +167,7 @@ footer {
     }
 
 
-/* menu
-----------------------------------------------------------*/
+/* menu */
 ul#menu {
     font-size: 1.3em;
     font-weight: 600;
@@ -192,7 +191,6 @@ ul#menu {
             color: #333;
             text-decoration: none;
         }
-
 
 /* page elements
 ----------------------------------------------------------*/
@@ -293,26 +291,6 @@ ol.round {
         }
 
 /* content */
-article {
-    float: left;
-    width: 70%;
-}
-
-aside {
-    float: right;
-    width: 25%;
-}
-
-    aside ul {
-        list-style: none;
-        padding: 0;
-    }
-
-        aside ul li {
-            background: url("../Images/bullet.png") no-repeat 0 50%;
-            padding: 2px 0 2px 20px;
-        }
-
 .label {
     font-weight: 700;
 }
@@ -335,29 +313,32 @@ aside {
     width: 50%;
 }
 
-/* contact */
-.contact h3 {
-    font-size: 1.2em;
-}
-
-.contact p {
-    margin: 5px 0 0 10px;
-}
-
-.contact iframe {
-    border: 1px solid #333;
-    margin: 5px 0 0 10px;
-}
-
 /* forms */
+.twocolform {
+    overflow: hidden;
+}
+
+.leftcolumn {
+    width: 48%;
+    float: left;
+    padding-right: 4%;
+}
+
+.rightcolumn {
+    width: 48%;
+    float: right;
+}
+
 fieldset {
-    border: none;
+    border: 1px solid #ddd;
     margin: 0;
-    padding: 0;
+    padding: 0 1.4em 1.4em 1.4em;
 }
 
     fieldset legend {
-        display: none;
+        font-size: 1.2em;
+        font-weight: 600;
+        padding: 0;
     }
     
     fieldset ol {
@@ -389,10 +370,14 @@ fieldset {
         width: 300px;
     }
 
-        fieldset input[type="text"]:focus,
-        fieldset input[type="password"]:focus {
-            border: 1px solid #7ac0da;
-        }
+    fieldset input[type="text"]:focus,
+    fieldset input[type="password"]:focus {
+        border: 1px solid #7ac0da;
+    }
+
+    fieldset input[type="checkbox"] {
+        display: inline;
+    }
 
     fieldset input[type="submit"] {
         background-color: #d3dce0;
@@ -402,6 +387,16 @@ fieldset {
         font-weight: 600;
         padding: 7px;
     }
+
+.display-label, 
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.display-field, 
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
 
 /* ajax login/registration dialog */
 .ui-dialog {

@@ -1,0 +1,167 @@
+﻿@model IEnumerable<PigBob.Models.OrderItem>
+@{
+    ViewBag.Title = "Sandwiches for " + ViewBag.OrderDate.ToLongDateString();
+}
+
+<script src="@Url.Content("~/Scripts/Print.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function ($) {
+        $('#accordian table').hide();
+        $('#hide').hide();
+        $('#show').click(function () {
+            $('#accordian table').fadeIn();
+            $('#show').fadeOut(function () {
+                $('#hide').fadeIn();
+            });
+            return false;
+        });
+        $('#hide').click(function () {
+            $('#accordian table').fadeOut();
+            $('#hide').fadeOut(function () {
+                $('#show').fadeIn();
+            });
+            return false;
+        });
+    });
+</script>
+
+<h2>@ViewBag.Title</h2>
+
+@if (ViewBag.OrderDate >= DateTime.Now.AddHours(-8))
+{
+    <p>
+        @Html.ActionLink("Add a Sandwich", "Create", new { id = ViewBag.OrderId })
+    </p>
+}
+
+@if(ViewBag.Total > 0) {
+    <p>
+        Order Summary:
+    </p>
+    
+    <div id="summary">
+    <table>
+
+        <thead>
+            <tr>
+                <th>Filling Mix</th>
+                <th>Number of Sandwiches</th>
+            </tr>
+        </thead>
+
+    @if (ViewBag.Sausage > 0)
+    {
+        <tr>
+            <td>Sausage Only</td><td>@(ViewBag.Sausage == 1 ? ViewBag.Sausage + " sandwich" : ViewBag.Sausage + " sandwiches")</td>
+        </tr>
+    }
+    @if (ViewBag.Bacon > 0)
+    {
+        <tr>
+            <td>Bacon Only</td><td>@(ViewBag.Bacon == 1 ? ViewBag.Bacon + " sandwich" : ViewBag.Bacon + " sandwiches")</td>
+        </tr>
+    }
+    @if (ViewBag.Egg > 0)
+    {
+        <tr>
+            <td>Egg Only</td><td>@(ViewBag.Egg == 1 ? ViewBag.Egg + " sandwich" : ViewBag.Egg + " sandwiches")</td>
+        </tr>
+    }
+    @if (ViewBag.SausageEgg > 0)
+    {
+        <tr>
+            <td>Sausage and Egg</td><td>@(ViewBag.SausageEgg == 1 ? ViewBag.SausageEgg + " sandwich" : ViewBag.SausageEgg + " sandwiches")</td>
+        </tr>
+    }
+    @if (ViewBag.BaconEgg > 0)
+    {
+        <tr>
+            <td>Bacon and Egg</td><td>@(ViewBag.BaconEgg == 1 ? ViewBag.BaconEgg + " sandwich" : ViewBag.BaconEgg + " sandwiches")</td>
+        </tr>
+    }
+    @if (ViewBag.SausageBacon > 0)
+    {
+        <tr>
+            <td>Sausage and Bacon</td><td>@(ViewBag.SausageBacon == 1 ? ViewBag.SausageBacon + " sandwich" : ViewBag.SausageBacon + " sandwiches")</td>
+        </tr>
+    }
+    @if (ViewBag.SausageBaconEgg > 0)
+    {
+        <tr>
+            <td>Sausage, Bacon, and Egg</td><td>@(ViewBag.SausageBaconEgg == 1 ? ViewBag.SausageBaconEgg + " sandwich" : ViewBag.SausageBaconEgg + " sandwiches")</td>
+        </tr>
+    }
+    @if (ViewBag.Other > 0)
+    {
+        int i = 0;
+         
+        foreach (string item in ViewBag.OtherItems)
+        {
+            <tr>
+                <td>@item</td><td>1 sandwich</td>
+            </tr>
+        }
+    }
+    <tr class="total">
+        <td>Order Total</td><td>@(ViewBag.Total == 1 ? ViewBag.Total + " sandwich" : ViewBag.Total + " sandwiches")</td>
+    </tr>
+    </table>
+    </div>
+}
+
+<div id="accordian">
+<p>
+<a id="show" href="">Show Order Details</a><a id="hide" href="">Hide Order Details</a>&nbsp;<input type="button" onclick="getPrint('summary', '@(ViewBag.OrderDate.ToLongDateString())');" value="Print Order" />
+</p>
+<table>
+    <tr>
+        <th>
+            Pig Eater
+        </th>
+        <th>
+            Bacon
+        </th>
+        <th>
+            Sausage
+        </th>
+        <th>
+            Egg
+        </th>
+        <th>
+            Other
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eater.FirstName) @Html.DisplayFor(modelIitem => item.Eater.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bacon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sausage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Egg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Other)
+        </td>
+        <td>
+            @Html.ActionLink("View Sandwich", "Details", new { id = item.ID })
+            @if (item.Eater.UserId == ViewBag.UserId)
+            {
+                @: | @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                @: | @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                }
+        </td>
+    </tr>
+}
+
+</table>
+</div>

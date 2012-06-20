@@ -1,0 +1,41 @@
+﻿@model PigBob.Models.OrderItem
+
+@{
+    ViewBag.Title = "Sandwich Details";
+}
+
+<h2>Your Pig Order for @Model.Order.OrderDate.ToLongDateString()</h2>
+
+<fieldset>
+    <legend>Sandwich Composition</legend>
+
+    <div class="display-label">Bacon</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bacon)
+    </div>
+
+    <div class="display-label">Sausage</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sausage)
+    </div>
+
+    <div class="display-label">Egg</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Egg)
+    </div>
+
+    @if ((Model.Other != null) && (Model.Other.Length > 0))
+    {
+        <div class="display-label">Other</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Other)
+        </div>
+    }
+</fieldset>
+<p>
+    @if (Model.Eater.UserId == ViewBag.UserId)
+    {
+        @: @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    }
+    @Html.ActionLink("Back to Order", "Index", new { id = Model.OrderID })
+</p>
