@@ -10,7 +10,7 @@
 {
     <h3>Are you sure you want to delete this sandwich?</h3>
     <fieldset>
-        <legend>OrderItem</legend>
+        <legend>Details</legend>
 
         <div class="display-label">Bacon</div>
         <div class="display-field">
@@ -27,14 +27,17 @@
             @Html.DisplayFor(model => model.Egg)
         </div>
 
+        @if (Model.Other != string.Empty && Model.Other != null)
+        {
         <div class="display-label">Other</div>
         <div class="display-field">
             @Html.DisplayFor(model => model.Other)
         </div>
+        }
 
-        <div class="display-label">Order</div>
+        <div class="display-label">Date</div>
         <div class="display-field">
-            @Html.DisplayFor(model => model.Order.OrderID)
+            @Html.DisplayFor(model => model.Order.OrderDate)
         </div>
     </fieldset>
     using (Html.BeginForm())

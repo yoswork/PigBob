@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PigBob", "PigBob\PigBob.csproj", "{2C9DC0E8-1B0F-4123-B867-82091DF99738}"
 EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "PigBob.Azure", "PigBob.Azure\PigBob.Azure.ccproj", "{7F7DA45F-9F5F-47FE-8AB1-68CB3DA6B653}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{2C9DC0E8-1B0F-4123-B867-82091DF99738}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C9DC0E8-1B0F-4123-B867-82091DF99738}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C9DC0E8-1B0F-4123-B867-82091DF99738}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F7DA45F-9F5F-47FE-8AB1-68CB3DA6B653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7DA45F-9F5F-47FE-8AB1-68CB3DA6B653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F7DA45F-9F5F-47FE-8AB1-68CB3DA6B653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F7DA45F-9F5F-47FE-8AB1-68CB3DA6B653}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

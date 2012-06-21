@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="PigBob.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="1" osVersion="*" schemaVersion="2012-05.1.7">
+  <Role name="PigBob">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=pigbob;AccountKey=SFFhWFkKQ2HZrQPET5EHu1n8Tj2FOCZRxIRKnKBYbvcRoF1EM4l/SE8mgK7iofHyvyUn7G52lrBJVN84wGEHIg==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="yosnoor" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEE12C2JGRH+GTTb79FIKnXMwDQYJKoZIhvcNAQEBBQAEggEADJZFiJTMyDGr7unT+CbEuhcLRF5t/yPmktooHrbptCP/D9vf0g5yuhcmZxBk0GnIBD5+L/hBuVEeqva8eF8UcB3fhON8TFs3J0pdynXxqns7Esd+AIR0yUIDq1YCqTAm7Ud4hjJMqnn/ZwyBl8YsEY4UMs1p3KlA9RprFRhRee0bN8BOZbqFDNoEy7OuwzP31NvffPDEoDorS+OgWhvqob4PpCkhuwPgj0mHtAUimaSO038hLxJnXKy4z57Y2GQQMnVbu+JOKLkRi5KdSf7n1bDBh/j81A5fwWXsFfG0c5hD8XvyGzClmQd200AwRhkOJMjoj0wICPrVD+24+0dm/TAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECHxusqkC6n+2gBA3mxqHmMqsm3omBaKbKiwe" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2013-06-21T23:59:59.0000000+01:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="8AF53EE6C112A730B021213A4414BE01D5F36B45" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

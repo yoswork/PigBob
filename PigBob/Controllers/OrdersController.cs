@@ -21,7 +21,7 @@ namespace PigBob.Controllers
         // GET: /Orders/
         public ViewResult Index()
         {
-            return View(db.Orders.OrderBy(o => o.OrderDate).Take(10).ToList());
+            return View(db.Orders.OrderByDescending(o => o.OrderDate).Take(10).ToList());
         }
 
         //

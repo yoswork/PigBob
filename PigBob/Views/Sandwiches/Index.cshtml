@@ -5,27 +5,6 @@
 
 <script src="@Url.Content("~/Scripts/Print.js")" type="text/javascript"></script>
 
-<script type="text/javascript">
-    $(document).ready(function ($) {
-        $('#accordian table').hide();
-        $('#hide').hide();
-        $('#show').click(function () {
-            $('#accordian table').fadeIn();
-            $('#show').fadeOut(function () {
-                $('#hide').fadeIn();
-            });
-            return false;
-        });
-        $('#hide').click(function () {
-            $('#accordian table').fadeOut();
-            $('#hide').fadeOut(function () {
-                $('#show').fadeIn();
-            });
-            return false;
-        });
-    });
-</script>
-
 <h2>@ViewBag.Title</h2>
 
 @if (ViewBag.OrderDate >= DateTime.Now.AddHours(-8))
@@ -165,3 +144,26 @@
 
 </table>
 </div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            $('#accordian table').hide();
+            $('#hide').hide();
+            $('#show').click(function () {
+                $('#accordian table').fadeIn();
+                $('#show').fadeOut(function () {
+                    $('#hide').fadeIn();
+                });
+                return false;
+            });
+            $('#hide').click(function () {
+                $('#accordian table').fadeOut();
+                $('#hide').fadeOut(function () {
+                    $('#show').fadeIn();
+                });
+                return false;
+            });
+        });
+</script>
+}
