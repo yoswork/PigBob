@@ -4,6 +4,6 @@
 }
 else
 {
-    @Html.ActionLink("Register", "Register", "Account", null, new { id = "registerLink", data_dialog_title = "Registration", data_icon = "plus", data_corners = "false"})
-    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "logonLink", data_dialog_title = "Identification", data_icon = "check", data_corners = "false"})
+    @Html.ActionLink("Register", "Register", "Account", null, new { data_dialog_title = "Registration", data_icon = "plus", data_corners = "false"})
+    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { data_dialog_title = "Identification", data_icon = "check", data_corners = "false"})
 }

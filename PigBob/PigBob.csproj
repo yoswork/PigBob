@@ -89,6 +89,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="FiftyOne.Foundation">
+      <HintPath>..\packages\51Degrees.mobi.2.1.4.10\lib\NET40\FiftyOne.Foundation.dll</HintPath>
+    </Reference>
     <Reference Include="jQuery.Mobile.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\jQuery.Mobile.MVC.0.0.2\lib\jQuery.Mobile.MVC.dll</HintPath>
@@ -101,6 +104,9 @@
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WindowsAzure.Storage.1.7.0.0\lib\net35-full\Microsoft.WindowsAzure.StorageClient.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.103.1\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -196,6 +202,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mobile\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PigContext.cs" />
@@ -281,8 +294,11 @@
     <Content Include="Content\themes\redmond\jquery.ui.theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="51Degrees.mobi.config" />
+    <None Include="Properties\PublishProfiles\pigbob - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\pigbob - Web Deploy.pubxml" />
     <Content Include="Images\Pig_Sandwich.gif" />
+    <Content Include="Mobile\Default.aspx" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js">
       <DependentUpon>jquery-1.6.4.js</DependentUpon>
@@ -293,7 +309,6 @@
     </Content>
     <Content Include="Images\deadpig.png" />
     <Content Include="Images\google-logo.jpg" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js">
       <DependentUpon>jquery-ui-1.8.11.js</DependentUpon>
@@ -375,7 +390,7 @@
     <Content Include="Views\Sandwiches\Edit.Mobile.cshtml" />
     <Content Include="Views\Sandwiches\Delete.Mobile.cshtml" />
     <Content Include="Views\Orders\Create.Mobile.cshtml" />
-    <None Include="Views\Shared\_LoginPartial.Mobile.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.Mobile.cshtml" />
     <Content Include="Views\Shared\_ViewSwitcher.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -4,12 +4,6 @@
     ViewBag.Title = "Log In";
 }
 
-<script type="text/javascript">
-    $(function () {
-        $("form :input[type='text']:enabled:first").focus();
-    });
-</script>
-
 @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 
 @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { data_ajax = "false" })) {
@@ -37,4 +31,9 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(function () {
+            $("form :input[type='text']:enabled:first").focus();
+        });
+    </script>
 }

@@ -6,10 +6,6 @@
 
 <h2>Edit</h2>
 
-<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
-
 <script type="text/javascript">
     $(function () {
         $("#OrderDate").datepicker({ dateFormat: 'dd MM yy' });
@@ -40,3 +36,7 @@
 <div>
     @Html.ActionLink("Back to Orders", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
