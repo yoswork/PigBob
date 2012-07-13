@@ -6,12 +6,6 @@
 
 <h2>Edit</h2>
 
-<script type="text/javascript">
-    $(function () {
-        $("#OrderDate").datepicker({ dateFormat: 'dd MM yy' });
-    });
-</script>
-
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
@@ -37,6 +31,13 @@
     @Html.ActionLink("Back to Orders", "Index")
 </div>
 
-@section Scripts {
+@section scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(function () {
+            if (!Modernizr.inputtypes.date) {
+                $("#OrderDate").datepicker({ dateFormat: 'dd MM yy' });
+            }
+        });
+    </script>
 }

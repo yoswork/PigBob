@@ -33,7 +33,9 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
         $(function () {
-            $("#OrderDate").datepicker({ dateFormat: 'dd MM yy' });
+            if (!Modernizr.inputtypes.date) {
+                $("#OrderDate").datepicker({ dateFormat: 'dd MM yy' });
+            }
         });
     </script>
 }

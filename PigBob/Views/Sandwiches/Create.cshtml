@@ -47,6 +47,7 @@
 
         <p>
             <input type="submit" value="Create" />
+            @Html.ActionLink("Repeat Last Week's Order", "Repeat", new { @OrderID = Model.OrderID }, new { @class = "button" })
         </p>
     </fieldset>
 }

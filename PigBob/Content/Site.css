@@ -85,6 +85,21 @@ h5, h6 {
     font-size: 1em;
 }
 
+.button {
+    margin: 0 4px 0 0;
+    padding: 0 10px 1px 10px;
+    text-decoration: none !important;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #999;
+}
+
+    .button:hover {
+        border: 1px solid #7ac0da;
+        background: #d8ebf1;
+    }
+
 
 /* main layout
 ----------------------------------------------------------*/
@@ -361,6 +376,7 @@ fieldset {
     }
 
     fieldset input[type="text"],
+    fieldset input[type="date"],
     fieldset input[type="password"] {
         border: 1px solid #e2e2e2;
         color: #333;
@@ -371,6 +387,7 @@ fieldset {
     }
 
     fieldset input[type="text"]:focus,
+    fieldset input[type="date"]:focus,
     fieldset input[type="password"]:focus {
         border: 1px solid #7ac0da;
     }
@@ -378,16 +395,7 @@ fieldset {
     fieldset input[type="checkbox"] {
         display: inline;
     }
-
-    fieldset input[type="submit"] {
-        background-color: #d3dce0;
-        border: 1px solid #787878;
-        cursor: pointer;
-        font-size: 1.2em;
-        font-weight: 600;
-        padding: 7px;
-    }
-
+    
 .display-label, 
 .editor-label {
     margin: 1em 0 0 0;

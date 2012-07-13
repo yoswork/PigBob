@@ -35,6 +35,20 @@ namespace PigBob
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new StyleBundle("~/Content/themes/smoothness/css").Include(
+                        "~/Content/themes/smoothness/jquery.ui.core.css",
+                        "~/Content/themes/smoothness/jquery.ui.resizable.css",
+                        "~/Content/themes/smoothness/jquery.ui.selectable.css",
+                        "~/Content/themes/smoothness/jquery.ui.accordion.css",
+                        "~/Content/themes/smoothness/jquery.ui.autocomplete.css",
+                        "~/Content/themes/smoothness/jquery.ui.button.css",
+                        "~/Content/themes/smoothness/jquery.ui.dialog.css",
+                        "~/Content/themes/smoothness/jquery.ui.slider.css",
+                        "~/Content/themes/smoothness/jquery.ui.tabs.css",
+                        "~/Content/themes/smoothness/jquery.ui.datepicker.css",
+                        "~/Content/themes/smoothness/jquery.ui.progressbar.css",
+                        "~/Content/themes/smoothness/jquery.ui.theme.css"));
         }
     }
 }

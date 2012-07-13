@@ -74,39 +74,39 @@ namespace PigBob.Controllers
 
         private void SendEmail(Order order)
         {
-            var client = new RestClient();
-            client.BaseUrl = "https://api.mailgun.net/v2";
-            client.Authenticator = new HttpBasicAuthenticator("api", "key-46@qffnszp0xztzms0");
-            var request = new RestRequest();
-            request.AddParameter("domain", "pigbob.mailgun.org", ParameterType.UrlSegment);
-            request.Resource = "{domain}/messages";
-            request.AddParameter("from", "Pigbob <pigbob@reedonline.co.uk>");
-            request.AddParameter("subject", "New Pig Order!");
-            var messageBody = "<html>Hello, a fellow PigBobber has created a new Pig Run for <strong>" + order.OrderDate.ToLongDateString() + "</strong><br/><br/>" +
-                "Please click <a href=\"http://pigbob.azurewebsites.net/Sandwiches/Index/" + order.OrderID + "\">here</a> to place your order.";
-            request.AddParameter("html", messageBody);
-            request.Method = Method.POST;
+            //var client = new RestClient();
+            //client.BaseUrl = "https://api.mailgun.net/v2";
+            //client.Authenticator = new HttpBasicAuthenticator("api", "key-46@qffnszp0xztzms0");
+            //var request = new RestRequest();
+            //request.AddParameter("domain", "pigbob.mailgun.org", ParameterType.UrlSegment);
+            //request.Resource = "{domain}/messages";
+            //request.AddParameter("from", "Pigbob <pigbob@reedonline.co.uk>");
+            //request.AddParameter("subject", "New Pig Order!");
+            //var messageBody = "<html>Hello, a fellow PigBobber has created a new Pig Run for <strong>" + order.OrderDate.ToLongDateString() + "</strong><br/><br/>" +
+            //    "Please click <a href=\"http://pigbob.azurewebsites.net/Sandwiches/Index/" + order.OrderID + "\">here</a> to place your order.";
+            //request.AddParameter("html", messageBody);
+            //request.Method = Method.POST;
 
-            request.AddParameter("to", "yosnoor@hotmail.com");
+            //request.AddParameter("to", "yosnoor@hotmail.com");
 
-            var result = client.Execute(request);
+            //var result = client.Execute(request);
 
             
             
-/*            MailMessage message = new MailMessage();
+            MailMessage message = new MailMessage();
             message.From = new MailAddress("pigbob@reedonline.co.uk");
             message.Subject = "New Pig Order!";
             message.IsBodyHtml = true;
-            message.Body = "Hello, a fellow PigBober has created a new Pig Run for <strong>" + order.OrderDate.ToLongDateString() + "</strong><br/><br/>" +
-                "Please click <a href=\"http://pigbob.cloudapp.net/Sandwiches/Index/" + order.OrderID + "\">here</a> to place your order.";
+            message.Body = "Hello, a fellow PigBobber has created a new Pig Run for <strong>" + order.OrderDate.ToLongDateString() + "</strong><br/><br/>" +
+                "Please click <a href=\"http://pigbob.azurewebsites.net/Sandwiches/Index/" + order.OrderID + "\">here</a> to place your order.";
             var members = Membership.GetAllUsers();
             foreach (MembershipUser member in members)
             {
                 message.To.Add(member.Email);
             }
-            message.To.Add("yosnoor@hotmail.com");
+            //message.To.Add("yosnoor@hotmail.com");
             SmtpClient smtp = new SmtpClient();
-            smtp.Send(message); */
+            smtp.Send(message);
         }
 
         private static bool UrlValidationCallback(string redirectionUrl)
